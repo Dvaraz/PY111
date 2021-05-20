@@ -4,7 +4,7 @@ My little Queue
 from typing import Any
 from collections import deque
 
-queue = deque([])
+queue = []
 
 
 def enqueue(elem: Any) -> None:
@@ -15,7 +15,7 @@ def enqueue(elem: Any) -> None:
     :return: Nothing
     """
     print(elem)
-    queue.append(elem)
+    queue.insert(0, elem)
     return None
 
 
@@ -26,7 +26,7 @@ def dequeue() -> Any:
     :return: dequeued element
     """
     if queue:
-        a = queue.popleft()
+        a = queue.pop()
         return a
     else:
         return None
@@ -41,7 +41,7 @@ def peek(ind: int = 0) -> Any:
     """
     print(ind)
     if ind == 0:
-        return queue[0]
+        return queue[-1]
     elif ind > len(queue):
         return None
     else:
